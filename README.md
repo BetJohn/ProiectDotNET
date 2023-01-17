@@ -1,0 +1,1 @@
+Bona sera! Am initializat proiectul!
