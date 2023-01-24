@@ -5,6 +5,7 @@ namespace Proiectul_meu.Models
 
     public class Sosete : Baza
     {
+       
         public string Descriere { get; set; }
 
         public string Culoare { get; set; }

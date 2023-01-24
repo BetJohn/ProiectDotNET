@@ -1,8 +1,6 @@
-﻿using Proiectul_meu.Models.Base;
-
-namespace Proiectul_meu.Models
+﻿namespace Proiectul_meu.Models
 {
-    public class Tricou : Baza
+    public class TricouDTO
     {
         public string Descriere { get; set; }
 
@@ -14,7 +12,5 @@ namespace Proiectul_meu.Models
 
         public double Pret { get; set; }
         public ICollection<TricouLaTrening> TricouLaTreninguri { get; set; }
-
     }
-    
 }
