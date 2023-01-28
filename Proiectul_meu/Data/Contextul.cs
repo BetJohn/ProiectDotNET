@@ -42,8 +42,6 @@ namespace Proiectul_meu.Data
             modelBuilder.Entity<Trening>()
                 .HasOne(t => t.Pantaloni);
             modelBuilder.Entity<Trening>()
-                .HasMany(t => t.Sosete);
-            modelBuilder.Entity<Trening>()
                 .HasMany(t => t.Tricouri);
             modelBuilder.Entity<Sosete>()
                 .HasOne(t => t.Trening);

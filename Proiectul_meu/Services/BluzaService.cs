@@ -34,14 +34,14 @@ namespace Proiectul_meu.Services
         public async Task<List<BluzaDTO>> GetAllBluze()
         {
             var bluze = await _bluzaRepository.GetAll();
-            List<BluzaDTO> result = _mapper.Map<List<BluzaDTO>>(bluze);
+            var result = _mapper.Map<List<BluzaDTO>>(bluze);
             return result;
         }
 
         public async Task<BluzaDTO> GetBluzaById(Guid id)
         {
             var bluza = await _bluzaRepository.FindByIdAsync(id);
-            BluzaDTO result = _mapper.Map<BluzaDTO>(bluza);
+            var result = _mapper.Map<BluzaDTO>(bluza);
             return result;
         }
 
@@ -56,6 +56,7 @@ namespace Proiectul_meu.Services
             bluza.Pret = bluzaDto.Pret;
             bluza.Hoodie = bluzaDto.Hoodie;
 
+            _bluzaRepository.Update(bluza);
             await _bluzaRepository.SaveAsync();
         }
 

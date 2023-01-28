@@ -9,7 +9,18 @@ namespace Proiectul_meu.Models
         {
             CreateMap<Tricou, TricouDTO>();
             CreateMap<TricouDTO, Tricou>();
+            
+            CreateMap<Pantaloni, PantaloniDTO>();
+            CreateMap<PantaloniDTO, Pantaloni>();
 
+            CreateMap<Sosete, SoseteDTO>();
+            CreateMap<SoseteDTO, Sosete>();
+
+            CreateMap<Trening, TreningDTO>();
+            CreateMap<TreningDTO, Trening>();
+
+            CreateMap<TricouLaTrening, TricouLaTreningDTO>();
+            CreateMap<TricouLaTreningDTO, TricouLaTrening>();
 
             CreateMap<Bluza, BluzaDTO>();
             CreateMap<BluzaDTO, Bluza>();

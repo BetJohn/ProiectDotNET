@@ -23,9 +23,17 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddTransient<ITricouRepository, TricouRepository>();
 builder.Services.AddTransient<IBluzaRepository, BluzaRepository>();
+builder.Services.AddTransient<ISoseteRepository, SoseteRepository>();
+builder.Services.AddTransient<ITreningRepository, TreningRepository>();
+builder.Services.AddTransient<IPantaloniRepository, PantaloniRepository>();
+builder.Services.AddTransient<ITricouLaTreningRepository, TricouLaTreningRepository>();
 
 builder.Services.AddTransient<ITricouService, TricouService>();
 builder.Services.AddTransient<IBluzaService, BluzaService>();
+builder.Services.AddTransient<ISoseteService, SoseteService>();
+builder.Services.AddTransient<ITreningService, TreningService>();
+builder.Services.AddTransient<IPantaloniService, PantaloniService>();
+builder.Services.AddTransient<ITricouLaTreningService, TricouLaTreningService>();
 
 /*builder.Services.AddIdentity<IdentityUser, IdentityRole>()*/
 
