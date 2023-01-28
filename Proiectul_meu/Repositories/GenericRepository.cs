@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Proiectul_meu.Data;
+using Proiectul_meu.Repositories.Interfaces;
 
 namespace Proiectul_meu.Repositories
 {

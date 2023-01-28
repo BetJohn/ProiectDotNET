@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Proiectul_meu.Repositories.Interfaces;
+using Proiectul_meu.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,12 +20,16 @@ builder.Services.AddDbContext<Contextul>(options => options.UseSqlServer(connect
 //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true);
 
 builder.Services.AddRazorPages();
+
 builder.Services.AddTransient<ITricouRepository, TricouRepository>();
+builder.Services.AddTransient<IBluzaRepository, BluzaRepository>();
+
 builder.Services.AddTransient<ITricouService, TricouService>();
+builder.Services.AddTransient<IBluzaService, BluzaService>();
 
 /*builder.Services.AddIdentity<IdentityUser, IdentityRole>()*/
-            
-     /*       .AddDefaultTokenProviders();*/
+
+/*       .AddDefaultTokenProviders();*/
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -50,7 +56,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 {
     // Cookie settings
     options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
 
     options.LoginPath = "/Identity/Account/Login";
     options.AccessDeniedPath = "/Identity/Account/AccessDenied";
@@ -64,6 +70,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller}/{action}/{id?}");
 
 app.UseAuthentication();
 app.UseAuthorization();

@@ -1,7 +1,10 @@
 ﻿using Proiectul_meu.Models;
-using Proiectul_meu.Repositories;
 
 using AutoMapper;
+using Proiectul_meu.Models.DTO;
+using Proiectul_meu.Repositories.Interfaces;
+using Proiectul_meu.Services.Interfaces;
+
 namespace Proiectul_meu.Services
 {
     public class TricouService : ITricouService
@@ -15,52 +18,49 @@ namespace Proiectul_meu.Services
         }
 
 
-        public async Task CreateTricou(Tricou tricou)
+        public async Task CreateTricou(TricouDTO tricou)
         {
-             await _tricouRepository.CreateAsync(tricou);
+            var newTricou = _mapper.Map<Tricou>(tricou);
+            await _tricouRepository.CreateAsync(newTricou);
+            await _tricouRepository.SaveAsync();
         }
 
-        public async Task<Tricou> DeleteTricou(int id)
+        public async Task DeleteTricou(Guid id)
         {
             var tricou = await _tricouRepository.FindByIdAsync(id);
             _tricouRepository.Delete(tricou);
             await _tricouRepository.SaveAsync();
-            return tricou;
-            
+
         }
 
-        public async Task<List<Tricou>> GetAllTricouri()
+        public async Task<List<TricouDTO>> GetAllTricouri()
         {
             var tricouri = await _tricouRepository.GetAll();
-            List<Tricou> result = _mapper.Map<List<Tricou>>(tricouri);
+            List<TricouDTO> result = _mapper.Map<List<TricouDTO>>(tricouri);
             return result;
-           
+
         }
 
-        public async Task<Tricou> GetTricouById(int id)
+        public async Task<TricouDTO> GetTricouById(Guid id)
         {
             var tricou = await _tricouRepository.FindByIdAsync(id);
-            Tricou result = _mapper.Map<Tricou>(tricou);
+            TricouDTO result = _mapper.Map<TricouDTO>(tricou);
             return result;
-            
+
         }
 
-        public async Task<Tricou> UpdateTricou(Tricou tricou)
+        public async Task UpdateTricou(TricouDTO tricouDto)
         {
+            var tricou = await _tricouRepository.FindByIdAsync(tricouDto.Id);
+
+            tricou.Descriere = tricouDto.Descriere;
+            tricou.Culoare = tricouDto.Culoare;
+            tricou.Marime = tricouDto.Marime;
+            tricou.Material = tricouDto.Material;
+            tricou.Pret = tricouDto.Pret;
+            
             _tricouRepository.Update(tricou);
             await _tricouRepository.SaveAsync();
-            return tricou;
-            
-        }
-
-        Task ITricouService.DeleteTricou(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task ITricouService.UpdateTricou(Tricou tricou)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Proiectul_meu.Data
         public DbSet<Sosete> Sosete { get; set; }
         public DbSet<TricouLaTrening> TricouriLaTrening { get; set; }
  
-        
+         
 
         
         public Contextul(DbContextOptions<Contextul> options) : base(options) { }
