@@ -9,7 +9,7 @@ export class SoseteService {
   private readonly route = 'sosete'
 
   constructor(private readonly apiService: ApiService) { }
-  getAllSoseteri(): Observable<Array<Sosete>> {
+  getAllSosete(): Observable<Array<Sosete>> {
     return this.apiService.get(this.route);
   }
 

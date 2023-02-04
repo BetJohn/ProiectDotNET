@@ -1,3 +1,4 @@
+/// <reference path="../sosete/sosete.component.ts" />
 import { Component, OnInit } from '@angular/core';
 import { Bluza } from '../models/Bluza';
 import { BluzaService } from '../services/bluza.service';
@@ -13,7 +14,7 @@ export class BluzaComponent implements OnInit {
   constructor(private readonly BluzaService: BluzaService) { }
 
   ngOnInit(): void {
-    this.BluzaService.getAllBluzari().subscribe(bluze => {
+    this.BluzaService.getAllBluze().subscribe(bluze => {
       this.bluze = bluze;
     });
   }

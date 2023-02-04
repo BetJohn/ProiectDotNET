@@ -1,1 +1,14 @@
-<p>sosete works!</p>
+<mat-list *ngFor="let soseta of sosete">
+  <mat-list-item role="listitem">Descriere: {{soseta.descriere}}</mat-list-item>
+  <mat-list-item role="listitem">Culoare: {{soseta.culoare}}</mat-list-item>
+  <mat-list-item role="listitem">Marime: {{soseta.marime}}</mat-list-item>
+  <mat-list-item role="listitem">Material: {{soseta.material}}</mat-list-item>
+  <mat-list-item role="listitem">Pret: {{soseta.pret}}</mat-list-item>
+  <mat-list-item role="listitem" *ngIf="soseta.diferite == true">Diferite: DA!</mat-list-item>
+  <mat-list-item role="listitem" *ngIf="soseta.diferite == false">Diferite: Nu.</mat-list-item>
+
+  <button (click)="deleteSosete(soseta.id)">Sterge soseta</button>
+</mat-list>
+<div [routerLink]="['/create']">
+  Adauga soseta
+</div>

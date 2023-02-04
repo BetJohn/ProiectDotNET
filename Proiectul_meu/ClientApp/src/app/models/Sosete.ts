@@ -1,14 +1,14 @@
 import { Trening } from "./Trening";
 
 export interface Sosete {
-  Id: string;
-  Descriere: string;
-  Culoare: string;
-  Marime: string;
-  Material: string;
-  Pret: number;
-  Scurte: boolean;
-  Diferite: boolean;
-  TreningId: string;
-  Trening: Trening;
+  id: string;
+  descriere: string;
+  culoare: string;
+  marime: string;
+  material: string;
+  pret: number;
+  scurte: boolean;
+  diferite: boolean;
+  treningId: string;
+  trening: Trening;
 }

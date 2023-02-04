@@ -10,7 +10,7 @@ export class BluzaService {
   private readonly route = 'bluza'
 
   constructor(private readonly apiService: ApiService) { }
-  getAllBluzari(): Observable<Array<Bluza>> {
+  getAllBluze(): Observable<Array<Bluza>> {
     return this.apiService.get(this.route);
   }
 

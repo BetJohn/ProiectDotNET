@@ -4,6 +4,10 @@
   <mat-list-item role="listitem">Marime: {{bluza.marime}}</mat-list-item>
   <mat-list-item role="listitem">Material: {{bluza.material}}</mat-list-item>
   <mat-list-item role="listitem">Pret: {{bluza.pret}}</mat-list-item>
+  <mat-list-item role="listitem">Descriere: {{bluza.descriere}}</mat-list-item>
+  <mat-list-item role="listitem" *ngIf="bluza.hoodie == true">Hoodie: DA!</mat-list-item>
+  <mat-list-item role="listitem" *ngIf="bluza.hoodie == false">Hoodie: Nu.</mat-list-item>
+
   <button (click)="deleteBluza(bluza.id)">Sterge bluza</button>
 </mat-list>
 <div [routerLink]="['/create']">

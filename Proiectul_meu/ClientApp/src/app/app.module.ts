@@ -11,6 +11,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { BluzaComponent } from './bluza/bluza.component';
 import { MatListModule } from '@angular/material';
 import { CounterComponent } from './counter/counter.component';
+import { SoseteComponent } from './sosete/sosete.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CounterComponent } from './counter/counter.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    BluzaComponent
+    BluzaComponent,
+    SoseteComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,6 +33,7 @@ import { CounterComponent } from './counter/counter.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'bluza', component: BluzaComponent },
+      { path: 'sosete', component: SoseteComponent},
     ])
   ],
   providers: [],
