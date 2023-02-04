@@ -10,6 +10,7 @@
         public double Pret { get; set; }
         public bool Scurte { get; set; }
         public bool Diferite { get; set; }
+        public Guid TreningId { get; set; }
         public TreningDTO? Trening { get; set; }
     }
 }

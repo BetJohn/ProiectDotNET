@@ -6,11 +6,9 @@ namespace Proiectul_meu.Models
 
     public class TricouLaTrening : Baza   
     {
-        public Guid TreningID { get; set; }
-        [ForeignKey("TreningID")]
+        public Guid TreningId { get; set; }
+        public Guid TricouId { get; set; }
         public Trening Trening { get; set; }
-        public Guid TricouID { get; set; }
-        [ForeignKey("TricouID")]
         public Tricou Tricou { get; set; }
     }
 }

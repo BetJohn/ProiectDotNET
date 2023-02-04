@@ -16,7 +16,25 @@ namespace Proiectul_meu.Repositories
             {
                 _context.Entry(sosete.Trening).State = EntityState.Unchanged;
             }
+
+            if (_context.Bluze.Any(t => t.Id == sosete.Trening.Bluza.Id))
+            {
+                _context.Entry(sosete.Trening.Bluza).State = EntityState.Unchanged;
+            }
+
+            if (_context.Pantaloni.Any(t => t.Id == sosete.Trening.Pantaloni.Id))
+            {
+                _context.Entry(sosete.Trening.Pantaloni).State = EntityState.Unchanged;
+            }
+
             await _context.SaveChangesAsync();
+        }
+
+        public new async Task<List<Sosete>> GetAll()
+        {
+            return await _context.Sosete
+                .Include(s => s.Trening)
+                .ToListAsync();
         }
     }
 }

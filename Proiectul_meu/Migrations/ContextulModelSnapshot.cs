@@ -266,7 +266,7 @@ namespace Proiectulmeu.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("TreningID", "TricouID");
+                    b.HasKey("Id");
 
                     b.HasIndex("TricouID");
 

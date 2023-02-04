@@ -1,4 +1,6 @@
-﻿namespace Proiectul_meu.Models.DTO
+﻿using System.Runtime.InteropServices;
+
+namespace Proiectul_meu.Models.DTO
 {
     public class TreningDTO
     {

@@ -21,22 +21,18 @@ namespace Proiectul_meu.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TricouLaTrening>()
-                .HasKey(t => new { t.TreningID, t.TricouID });
             modelBuilder.Entity<Tricou>()
 
                 .HasMany(t => t.TricouLaTreninguri)
                 .WithOne(t => t.Tricou)
                 .OnDelete(DeleteBehavior.Cascade);
-            
+
             modelBuilder.Entity<TricouLaTrening>()
                 .HasOne(t => t.Tricou)
-                .WithMany(t => t.TricouLaTreninguri)
-                .HasForeignKey(t => t.TricouID);
+                .WithMany(t => t.TricouLaTreninguri);
             modelBuilder.Entity<TricouLaTrening>()
                 .HasOne(t => t.Trening)
-                .WithMany(t => t.Tricouri)
-                .HasForeignKey(t => t.TreningID);
+                .WithMany(t => t.Tricouri);
             modelBuilder.Entity<Trening>()
                 .HasOne(t => t.Bluza);
             modelBuilder.Entity<Trening>()

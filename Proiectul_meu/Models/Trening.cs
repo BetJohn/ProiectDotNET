@@ -7,13 +7,16 @@ namespace Proiectul_meu.Models
     {
 
         [ForeignKey("BluzaId")]
-        public Bluza? Bluza { get; set; }
+        public Bluza Bluza { get; set; }
 
         public Guid BluzaId { get; set; }
 
         public ICollection<TricouLaTrening>? Tricouri { get; set; }
 
-        public Pantaloni? Pantaloni { get; set; }
+        [ForeignKey("PantaloniId")]
+        public Pantaloni Pantaloni { get; set; }
+
+        public Guid PantaloniId { get; set; }
     }
         
 }

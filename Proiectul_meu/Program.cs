@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Proiectul_meu.Repositories.Interfaces;
 using Proiectul_meu.Services.Interfaces;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +40,9 @@ builder.Services.AddTransient<ITricouLaTreningService, TricouLaTreningService>()
 
 /*       .AddDefaultTokenProviders();*/
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
 builder.Services.Configure<IdentityOptions>(options =>
 {
     // Password settings.

@@ -1,0 +1,11 @@
+
+<mat-list *ngFor="let bluza of bluze">
+  <mat-list-item role="listitem">Culoare: {{bluza.culoare}}</mat-list-item>
+  <mat-list-item role="listitem">Marime: {{bluza.marime}}</mat-list-item>
+  <mat-list-item role="listitem">Material: {{bluza.material}}</mat-list-item>
+  <mat-list-item role="listitem">Pret: {{bluza.pret}}</mat-list-item>
+  <button (click)="deleteBluza(bluza.id)">Sterge bluza</button>
+</mat-list>
+<div [routerLink]="['/create']">
+  Adauga bluza
+</div>

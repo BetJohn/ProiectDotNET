@@ -36,16 +36,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\models\Bluza.ts" />
+    <None Remove="ClientApp\src\app\models\Trening.ts" />
     <None Remove="ClientApp\src\app\models\Tricou.ts" />
+    <None Remove="ClientApp\src\app\models\TricouLaTrening.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\app\services\" />
     <Folder Include="ClientApp\src\app\NewFolder\" />
     <Folder Include="Controllers\NewFolder\" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\models\Bluza.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\Trening.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\Tricou.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\TricouLaTrening.ts" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
