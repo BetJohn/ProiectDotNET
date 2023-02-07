@@ -18,11 +18,11 @@ export class TricouService {
   }
   
   addTricou(tricou: Tricou): Observable<Tricou> {
-    return this.apiService.post(this.route, tricou);
+    return this.apiService.post(this.route + '/create', tricou);
   }
   
   updateTricou(tricou: Tricou): Observable<Tricou> {
-    return this.apiService.post(this.route, tricou);
+    return this.apiService.post(this.route + '/update', tricou);
   }
   
   deleteTricou(id: string): Observable<Tricou> {

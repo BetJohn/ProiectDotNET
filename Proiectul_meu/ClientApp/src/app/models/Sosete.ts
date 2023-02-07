@@ -1,7 +1,7 @@
 import { Trening } from "./Trening";
 
 export interface Sosete {
-  id: string;
+  id?: string;
   descriere: string;
   culoare: string;
   marime: string;
@@ -9,6 +9,6 @@ export interface Sosete {
   pret: number;
   scurte: boolean;
   diferite: boolean;
-  treningId: string;
+  treningId?: string;
   trening: Trening;
 }

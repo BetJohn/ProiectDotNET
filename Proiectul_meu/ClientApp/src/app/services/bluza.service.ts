@@ -18,12 +18,12 @@ export class BluzaService {
     return this.apiService.get(this.route + '/' + id);
   }
 
-  addBluza(bluza: Bluza): Observable<Bluza> {
-    return this.apiService.post(this.route, bluza);
+  addBluza(bluza: any): Observable<any> {
+    return this.apiService.post(this.route + '/create', bluza);
   }
 
   updateBluza(bluza: Bluza): Observable<Bluza> {
-    return this.apiService.post(this.route, bluza);
+    return this.apiService.post(this.route + '/update', bluza);
   }
 
   deleteBluza(id: string): Observable<Bluza> {

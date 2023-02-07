@@ -1,10 +1,10 @@
 export interface Pantaloni
 {
-  Id: string;
-  Descriere: string;
-  Culoare: string;
-  Marime: string;
-  Material: string;
-  Pret: number;
-  Scurti: boolean;
+  id?: string;
+  descriere: string;
+  culoare: string;
+  marime: string;
+  material: string;
+  pret: number;
+  scurti: boolean;
 }

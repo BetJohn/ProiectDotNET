@@ -1,1 +1,53 @@
-<p>trening works!</p>
+<div class="container">
+  <div class="listItems">
+    <mat-list *ngFor="let trening of treninguri">
+      <mat-list-item role="listitem">Bluza descriere: {{trening.bluza.descriere}}</mat-list-item>
+      <mat-list-item role="listitem">Bluza culoare: {{trening.bluza.culoare}}</mat-list-item>
+      <mat-list-item role="listitem">Bluza pret: {{trening.bluza.pret}}</mat-list-item>
+      <mat-list-item role="listitem">Pantaloni descriere: {{trening.pantaloni.descriere}}</mat-list-item>
+      <mat-list-item role="listitem">Pantaloni culoare: {{trening.pantaloni.culoare}}</mat-list-item>
+      <mat-list-item role="listitem">Pantaloni pret: {{trening.pantaloni.pret}}</mat-list-item>
+      <div class="indent">
+        <mat-list *ngFor="let tricou of trening.tricouri">
+          <mat-list-item role="listitem">Tricou descriere: {{tricou.tricou.descriere}}</mat-list-item>
+          <mat-list-item role="listitem">Tricou pret: {{tricou.tricou.pret}}</mat-list-item>
+        </mat-list>
+      </div>
+
+      <button (click)="deleteTrening(trening.id)">Sterge trening</button>
+    </mat-list>
+  </div>
+  <div class="addItemForm">
+    <form [formGroup]="treningForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label>Bluza</label>
+        <input type="text" formControlName="descriereBluza" placeholder="Descriere">
+        <input type="text" formControlName="culoareBluza" placeholder="Culoare">
+        <input type="text" formControlName="marimeBluza" placeholder="Marime">
+        <input type="text" formControlName="materialBluza" placeholder="Material">
+        <input type="number" formControlName="pretBluza" placeholder="Pret">
+        <div class="inlineDiv">
+          <div>
+            Are gluga?
+          </div>
+          <input type="checkbox" formControlName="hoodieBluza">
+        </div>
+      </div>
+      <div>
+        <label>Pantaloni</label>
+        <input type="text" formControlName="descrierePantaloni" placeholder="Descriere">
+        <input type="text" formControlName="culoarePantaloni" placeholder="Culoare">
+        <input type="text" formControlName="marimePantaloni" placeholder="Marime">
+        <input type="text" formControlName="materialPantaloni" placeholder="Material">
+        <input type="number" formControlName="pretPantaloni" placeholder="Pret">
+        <div class="inlineDiv">
+          <div>
+            Scurti?
+          </div>
+          <input type="checkbox" formControlName="scurtiPantaloni">
+        </div>
+      </div>
+      <button type="submit" [disabled]="!treningForm.valid">Submit</button>
+    </form>
+  </div>
+</div>

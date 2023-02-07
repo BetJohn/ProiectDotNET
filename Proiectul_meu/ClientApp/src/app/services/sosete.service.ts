@@ -18,11 +18,11 @@ export class SoseteService {
   }
 
   addSosete(sosete: Sosete): Observable<Sosete> {
-    return this.apiService.post(this.route, sosete);
+    return this.apiService.post(this.route + '/create', sosete);
   }
 
   updateSosete(sosete: Sosete): Observable<Sosete> {
-    return this.apiService.post(this.route, sosete);
+    return this.apiService.post(this.route + '/update', sosete);
   }
 
   deleteSosete(id: string): Observable<Sosete> {

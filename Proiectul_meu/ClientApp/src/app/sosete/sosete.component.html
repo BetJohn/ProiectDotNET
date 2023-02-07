@@ -1,14 +1,70 @@
-<mat-list *ngFor="let soseta of sosete">
-  <mat-list-item role="listitem">Descriere: {{soseta.descriere}}</mat-list-item>
-  <mat-list-item role="listitem">Culoare: {{soseta.culoare}}</mat-list-item>
-  <mat-list-item role="listitem">Marime: {{soseta.marime}}</mat-list-item>
-  <mat-list-item role="listitem">Material: {{soseta.material}}</mat-list-item>
-  <mat-list-item role="listitem">Pret: {{soseta.pret}}</mat-list-item>
-  <mat-list-item role="listitem" *ngIf="soseta.diferite == true">Diferite: DA!</mat-list-item>
-  <mat-list-item role="listitem" *ngIf="soseta.diferite == false">Diferite: Nu.</mat-list-item>
+<div class="container">
+  <div class="listItems">
+    <mat-list *ngFor="let soseta of sosete">
+      <mat-list-item role="listitem">Descriere: {{soseta.descriere}}</mat-list-item>
+      <mat-list-item role="listitem">Culoare: {{soseta.culoare}}</mat-list-item>
+      <mat-list-item role="listitem">Marime: {{soseta.marime}}</mat-list-item>
+      <mat-list-item role="listitem">Material: {{soseta.material}}</mat-list-item>
+      <mat-list-item role="listitem">Pret: {{soseta.pret}}</mat-list-item>
+      <mat-list-item role="listitem" *ngIf="soseta.diferite == true">Diferite: DA!</mat-list-item>
+      <mat-list-item role="listitem" *ngIf="soseta.diferite == false">Diferite: Nu.</mat-list-item>
 
-  <button (click)="deleteSosete(soseta.id)">Sterge soseta</button>
-</mat-list>
-<div [routerLink]="['/create']">
-  Adauga soseta
+      <button (click)="deleteSosete(soseta.id)">Sterge soseta</button>
+    </mat-list>
+  </div>
+  <div class="addItemForm">
+    <form [formGroup]="soseteForm" (ngSubmit)="onSubmit()">
+      <input type="text" formControlName="descriere" placeholder="Descriere">
+      <input type="text" formControlName="culoare" placeholder="Culoare">
+      <input type="text" formControlName="marime" placeholder="Marime">
+      <input type="text" formControlName="material" placeholder="Material">
+      <input type="number" formControlName="pret" placeholder="Pret">
+      <div class="inlineDiv">
+        <div>
+          Sunt scurte?
+        </div>
+        <input type="checkbox" formControlName="scurte">
+      </div>
+      <div class="inlineDiv">
+        <div>
+          Sunt diferite?
+        </div>
+        <input type="checkbox" formControlName="diferite">
+      </div>
+
+      <div>
+        Trening
+        <div>
+          <label>Bluza</label>
+          <input type="text" formControlName="descriereBluza" placeholder="Descriere">
+          <input type="text" formControlName="culoareBluza" placeholder="Culoare">
+          <input type="text" formControlName="marimeBluza" placeholder="Marime">
+          <input type="text" formControlName="materialBluza" placeholder="Material">
+          <input type="number" formControlName="pretBluza" placeholder="Pret">
+          <div class="inlineDiv">
+            <div>
+              Are gluga?
+            </div>
+            <input type="checkbox" formControlName="hoodieBluza">
+          </div>
+        </div>
+        <div>
+          <label>Pantaloni</label>
+          <input type="text" formControlName="descrierePantaloni" placeholder="Descriere">
+          <input type="text" formControlName="culoarePantaloni" placeholder="Culoare">
+          <input type="text" formControlName="marimePantaloni" placeholder="Marime">
+          <input type="text" formControlName="materialPantaloni" placeholder="Material">
+          <input type="number" formControlName="pretPantaloni" placeholder="Pret">
+          <div class="inlineDiv">
+            <div>
+              Scurti?
+            </div>
+            <input type="checkbox" formControlName="scurtiPantaloni">
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="!soseteForm.valid">Submit</button>
+    </form>
+  </div>
 </div>

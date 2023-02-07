@@ -18,11 +18,11 @@ export class TreningService {
   }
   
   addTrening(trening: Trening): Observable<Trening> {
-    return this.apiService.post(this.route, trening);
+    return this.apiService.post(this.route + '/create', trening);
   }
 
   updateTrening(trening: Trening): Observable<Trening> {
-    return this.apiService.post(this.route, trening);
+    return this.apiService.post(this.route + '/update', trening);
   }
 
   deleteTrening(id: string): Observable<Trening> {

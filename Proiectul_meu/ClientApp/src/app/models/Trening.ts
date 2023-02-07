@@ -3,9 +3,9 @@ import { Pantaloni } from "./Pantaloni";
 import { TricouLaTrening } from "./TricouLaTrening";
 
 export interface Trening {
-  Id: string;
-  Bluza: Bluza;
-  BluzaId: string;
-  Tricouri: Array<TricouLaTrening>;
-  Pantaloni: Pantaloni;
+  id?: string;
+  bluza: Bluza;
+  bluzaId?: string;
+  tricouri?: Array<TricouLaTrening>;
+  pantaloni: Pantaloni;
 }

@@ -1,1 +1,23 @@
-<p>tricou works!</p>
+<div class="container">
+  <div class="listItems">
+    <mat-list *ngFor="let tricou of tricouri">
+      <mat-list-item role="listitem">Culoare: {{tricou.culoare}}</mat-list-item>
+      <mat-list-item role="listitem">Marime: {{tricou.marime}}</mat-list-item>
+      <mat-list-item role="listitem">Material: {{tricou.material}}</mat-list-item>
+      <mat-list-item role="listitem">Pret: {{tricou.pret}}</mat-list-item>
+      <mat-list-item role="listitem">Descriere: {{tricou.descriere}}</mat-list-item>
+
+      <button (click)="deleteTricou(tricou.id)">Sterge tricou</button>
+    </mat-list>
+  </div>
+  <div class="addItemForm">
+    <form [formGroup]="tricouForm" (ngSubmit)="onSubmit()">
+      <input type="text" formControlName="descriere" placeholder="Descriere">
+      <input type="text" formControlName="culoare" placeholder="Culoare">
+      <input type="text" formControlName="marime" placeholder="Marime">
+      <input type="text" formControlName="material" placeholder="Material">
+      <input type="number" formControlName="pret" placeholder="Pret">
+      <button type="submit" [disabled]="!tricouForm.valid">Submit</button>
+    </form>
+  </div>
+</div>

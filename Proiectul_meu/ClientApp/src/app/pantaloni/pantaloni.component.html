@@ -1,1 +1,31 @@
-<p>pantaloni works!</p>
+<div class="container">
+  <div class="listItems">
+    <mat-list *ngFor="let pantalon of pantaloni">
+      <mat-list-item role="listitem">Culoare: {{pantalon.culoare}}</mat-list-item>
+      <mat-list-item role="listitem">Marime: {{pantalon.marime}}</mat-list-item>
+      <mat-list-item role="listitem">Material: {{pantalon.material}}</mat-list-item>
+      <mat-list-item role="listitem">Pret: {{pantalon.pret}}</mat-list-item>
+      <mat-list-item role="listitem">Descriere: {{pantalon.descriere}}</mat-list-item>
+      <mat-list-item role="listitem" *ngIf="pantalon.scurti == true">Scurti: DA!</mat-list-item>
+      <mat-list-item role="listitem" *ngIf="pantalon.scurti == false">Scurti: Nu.</mat-list-item>
+
+      <button (click)="deletePantaloni(pantalon.id)">Sterge pantalon</button>
+    </mat-list>
+  </div>
+  <div class="addItemForm">
+    <form [formGroup]="pantaloniForm" (ngSubmit)="onSubmit()">
+      <input type="text" formControlName="descriere" placeholder="Descriere">
+      <input type="text" formControlName="culoare" placeholder="Culoare">
+      <input type="text" formControlName="marime" placeholder="Marime">
+      <input type="text" formControlName="material" placeholder="Material">
+      <input type="number" formControlName="pret" placeholder="Pret">
+      <div class="inlineDiv">
+        <div>
+          Scurti?
+        </div>
+        <input type="checkbox" formControlName="scurti">
+      </div>
+      <button type="submit" [disabled]="!pantaloniForm.valid">Submit</button>
+    </form>
+  </div>
+</div>

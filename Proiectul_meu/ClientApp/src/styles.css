@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Provide sufficient contrast against white background */
+body {
+
+}
 a {
   color: #0366d6;
 }
@@ -13,4 +16,40 @@ code {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+.listItems {
+  flex-basis: 50%;
+}
+
+.addItemForm {
+  flex-basis: 50%;
+  border: solid black 1px;
+  height: fit-content;
+}
+
+.addItemForm input {
+  width: 100%;
+  display: block;
+}
+
+.container {
+    display: flex;
+    width: 90vw;
+}
+
+.inlineDiv {
+  display: inline-flex;
+}
+
+.inlineDiv div {
+    width: fit-content;
+    padding: 2px 2px 2px 2px;
+    align-self: center;
+    
+}
+
+.inlineDiv input {
+    height: fit-content;
+    align-self: center;
 }

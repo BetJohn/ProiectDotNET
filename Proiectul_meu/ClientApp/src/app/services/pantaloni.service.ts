@@ -6,7 +6,7 @@ import { ApiService } from './api.service';
   providedIn: 'root'
 })
 export class PantaloniService {
-  private readonly route = 'Pantaloni'
+  private readonly route = 'pantaloni'
 
   constructor(private readonly apiService: ApiService) { }
   getAllPantaloniri(): Observable<Array<Pantaloni>> {
@@ -18,11 +18,11 @@ export class PantaloniService {
   }
 
   addPantaloni(Pantaloni: Pantaloni): Observable<Pantaloni> {
-    return this.apiService.post(this.route, Pantaloni);
+    return this.apiService.post(this.route + '/create', Pantaloni);
   }
 
   updatePantaloni(Pantaloni: Pantaloni): Observable<Pantaloni> {
-    return this.apiService.post(this.route, Pantaloni);
+    return this.apiService.post(this.route + '/update', Pantaloni);
   }
 
   deletePantaloni(id: string): Observable<Pantaloni> {

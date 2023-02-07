@@ -1,5 +1,5 @@
 export interface Bluza {
-  id: string;
+  id?: string;
   descriere: string;
   culoare: string;
   marime: string;
